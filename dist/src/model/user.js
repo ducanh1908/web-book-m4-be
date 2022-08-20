@@ -11,6 +11,6 @@ const userSchema = new mongoose_1.Schema({
     phone: String,
     role: String
 });
-const User = (0, mongoose_1.model)('user', userSchema);
+const User = (0, mongoose_1.model)('User', userSchema);
 exports.User = User;
 //# sourceMappingURL=user.js.map
