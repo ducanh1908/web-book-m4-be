@@ -23,6 +23,7 @@ app.use((0, cors_1.default)());
 app.use('', router_1.router);
 app.use(body_parser_1.default.json());
 app.use(express_1.default.json());
+
 app.listen(PORT, () => {
     console.log(`App is running port http://localhost:${PORT}`);
 });
