@@ -3,7 +3,8 @@ import { Book } from "../model/book";
 
 class BookController{
     getAll= async (req: Request, res: Response) => {
-        let books = await Book.find().populate('gerne','name').populate('publisher','name');
+        let books = await Book.find().populate('gerne','name')
+        console.log(books)
         res.status(200).json(books);
 
     }
@@ -11,7 +12,8 @@ class BookController{
         try {
             let book = req.body;
             book = await Book.create(book);
-            let newBook = await Book.findById(book._id).populate('gerne', 'name').populate('publisher','name');
+            console.log(book)
+            let newBook = await Book.findById(book._id).populate('gerne', 'name')
             res.status(201).json(newBook);
         }catch (error){
             next(error);
@@ -36,7 +38,7 @@ class BookController{
     getBook = async (req: Request, res: Response, next: NextFunction) => {
         let id = req.params.id;
         try {
-            let book = await Book.findById(id).populate('gerne', 'name').populate('publisher','name');
+            let book = await Book.findById(id).populate('gerne', 'name')
             if (!book) {
                 res.status(404).json();
             } else {
@@ -58,7 +60,7 @@ class BookController{
                 _id: id
             }, data);
             data._id = id;
-            book = await Book.findById(id).populate('gerne','name').populate('publisher','name');
+            book = await Book.findById(id).populate('gerne','name')
             res.status(200).json(book);
         }
     }
