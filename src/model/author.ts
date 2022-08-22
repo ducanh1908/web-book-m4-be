@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 export interface IAuthor{
     name : string;
     yearOfBirth: string;
-    Amount: {
+    worksAmount: {
         type: number,
         default : 0
     };
@@ -15,7 +15,7 @@ export interface IAuthor{
 const authorSchema = new Schema<IAuthor>({
     name : String,
     yearOfBirth: String,
-    Amount: {
+    worksAmount: {
         type: Number,
         default : 0
     },
