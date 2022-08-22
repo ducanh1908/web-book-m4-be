@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction} from "express";
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 export const SECRET_KEY = '190896';
 
 export const auth = (req:Request, res: Response, next: NextFunction) => {

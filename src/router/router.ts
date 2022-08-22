@@ -15,3 +15,4 @@ router.use('/cartdetails',cartdetailRoute)
 
 router.use('/publishers',publisherRoute)
 
+router.use('/search',bookRoute)

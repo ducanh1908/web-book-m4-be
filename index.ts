@@ -9,9 +9,7 @@ import { router } from "./src/router/router";
 
 dotenv.config()
 const PORT = 3000;
-
 const app = express();
-
 const DB_LOCALHOST = 'mongodb+srv://admin:admin123@cluster0.ndyjwui.mongodb.net/Book-Management';
 mongoose.connect(`${DB_LOCALHOST}`).then(()=>{
     console.log('DB connect success !');
@@ -23,6 +21,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('',router)
+
 mongoose.Types.ObjectId.isValid('your id here');
 
 
