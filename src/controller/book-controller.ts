@@ -3,31 +3,32 @@ import { Book } from "../model/book";
 
 class BookController{
     getAll= async (req: Request, res: Response) => {
-        let books = await Book.find().populate('gerne','name')
+        let books = await Book.find().populate('gerne','name').populate('author','name').populate('publisher','name')
         console.log(books)
         res.status(200).json(books);
 
     }
     addBook = async (req: Request, res: Response, next: NextFunction) => {
-        try {
-            let book = req.body;
-            book = await Book.create(book);
-            console.log(book)
-            let newBook = await Book.findById(book._id).populate('gerne', 'name')
+            let books = req.body;
+             let book = await Book.create(books);
+            // res.status(200).json('create success')
+
+
+            let newBook = await Book.findById(book._id).populate('gerne', 'name').populate('author','name').populate('publisher','name')
             res.status(201).json(newBook);
-        }catch (error){
-            next(error);
-        }
     }
+
+
 
     deleteBook = async (req: Request, res: Response, next: NextFunction) => {
         let id = req.params.id;
+        console.log(id)
         try {
             let book = await Book.findById(id);
             if (!book) {
                 res.status(404).json();
             } else {
-                book.delete();
+book.deleteOne({_id:id})
                 res.status(204).json();
             }
         } catch (error) {
@@ -38,7 +39,7 @@ class BookController{
     getBook = async (req: Request, res: Response, next: NextFunction) => {
         let id = req.params.id;
         try {
-            let book = await Book.findById(id).populate('gerne', 'name')
+            let book = await Book.findById(id).populate('gerne', 'name').populate('publisher','name').populate('author','name')
             if (!book) {
                 res.status(404).json();
             } else {
@@ -60,7 +61,7 @@ class BookController{
                 _id: id
             }, data);
             data._id = id;
-            book = await Book.findById(id).populate('gerne','name')
+            book = await Book.findById(id).populate('gerne','name').populate('author','name').populate('publisher','name')
             res.status(200).json(book);
         }
     }

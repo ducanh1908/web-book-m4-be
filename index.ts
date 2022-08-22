@@ -18,9 +18,10 @@ mongoose.connect(`${DB_LOCALHOST}`).then(()=>{
     console.log(e);
 })
 app.use(cors());
-app.use('',router)
 app.use(bodyParser.json());
 app.use(express.json());
+app.use('',router)
+mongoose.Types.ObjectId.isValid('your id here');
 
 
 
