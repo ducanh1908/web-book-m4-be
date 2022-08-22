@@ -3,7 +3,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { router } from './src/router/router';
+
+import { router } from "./src/router/router";
+
 
 dotenv.config()
 const PORT = 3000;
@@ -17,11 +19,14 @@ mongoose.connect(`${DB_LOCALHOST}`).then(()=>{
 .catch(e =>{
     console.log(e);
 })
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
-app.use('', router)
+app.use('',router)
+mongoose.Types.ObjectId.isValid('your id here');
+
+
+
 
 
 
