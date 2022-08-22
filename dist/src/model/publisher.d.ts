@@ -23,20 +23,8 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-import { IGerne } from "./gerne";
-import { IAuthor } from "./author";
-import { IPublisher } from "./publisher";
-export interface IBook {
+export interface IPublisher {
     name?: string;
-    author?: IAuthor;
-    yearOfPublish?: number;
-    reprint?: number;
-    ISBN?: number;
-    description?: string;
-    image?: string;
-    gerne?: IGerne;
-    price?: number;
-    publisher?: IPublisher;
 }
-declare const Book: import("mongoose").Model<IBook, {}, {}, {}, any>;
-export { Book };
+declare const Publisher: import("mongoose").Model<IPublisher, {}, {}, {}, any>;
+export { Publisher };

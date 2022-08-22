@@ -4,7 +4,10 @@ exports.Book = void 0;
 const mongoose_1 = require("mongoose");
 const bookSchema = new mongoose_1.Schema({
     name: String,
-    publisher: String,
+    publisher: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: 'publisher'
+    },
     yearOfPublish: Number,
     reprint: Number,
     ISBN: Number,
