@@ -9,6 +9,9 @@ export const router = Router();
 router.use('/gernes',gerneRoute)
 router.use('/books',bookRoute);
 router.use('/authors',authorRoute)
+
 // router.use('',authRouter)
 router.use('/cartdetails',cartdetailRoute)
+
 router.use('/publishers',publisherRoute)
+

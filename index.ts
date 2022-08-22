@@ -3,7 +3,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
 import { router } from "./src/router/router";
+
 
 dotenv.config()
 const PORT = 3000;
@@ -22,6 +24,8 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use('',router)
 mongoose.Types.ObjectId.isValid('your id here');
+
+
 
 
 

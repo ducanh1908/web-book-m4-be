@@ -22,8 +22,10 @@ mongoose_1.default.connect(`${DB_LOCALHOST}`).then(() => {
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.use(express_1.default.json());
+
 app.use('', router_1.router);
 mongoose_1.default.Types.ObjectId.isValid('your id here');
+
 app.listen(PORT, () => {
     console.log(`App is running port http://localhost:${PORT}`);
 });
